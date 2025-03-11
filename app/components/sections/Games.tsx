@@ -22,11 +22,11 @@ const Games = forwardRef<HTMLDivElement>((props, ref) => (
   <section 
     id="games" 
     ref={ref} 
-    className="relative flex flex-col items-center text-white py-20 px-4 md:px-8 bg-black overflow-hidden">
+    className="relative flex flex-col items-center text-white py-20 px-4 md:px-8 bg-black/40 overflow-hidden">
     
     {/* Background Elements */}
-    <div className="absolute inset-0 bg-gradient-to-b from-black to-pink-900 opacity-60 -z-10"></div>
-    <div className="absolute -top-40 left-1/2 transform -translate-x-1/2 w-[700px] h-[700px] md:w-[900px] md:h-[900px] bg-pink-600 rounded-full blur-[160px] opacity-20 -z-10"></div>
+    {/* <div className="absolute inset-0 bg-gradient-to-b from-black to-pink-900 opacity-60 -z-10"></div> */}
+    {/* <div className="absolute -top-40 left-1/2 transform -translate-x-1/2 w-[700px] h-[700px] md:w-[900px] md:h-[900px] bg-pink-600 rounded-full blur-[160px] opacity-20 -z-10"></div> */}
 
     {/* 🎮 Section Title */}
     <motion.div className="text-center max-w-5xl mx-auto space-y-6 md:space-y-8 px-4"

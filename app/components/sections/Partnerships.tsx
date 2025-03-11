@@ -20,11 +20,11 @@ const Partnerships = forwardRef<HTMLDivElement>((props, ref) => (
   <section 
     id="partnerships" 
     ref={ref} 
-    className="relative min-h-screen flex flex-col items-center justify-center bg-black text-white py-24 px-6 md:px-12 overflow-hidden"
+    className="relative min-h-screen flex flex-col items-center justify-center bg-black/40 text-white py-24 px-6 md:px-12 overflow-hidden"
   >
     {/* 🔥 Background Effects */}
-    <div className="absolute inset-0 bg-gradient-to-b from-pink-700/50 to-black opacity-60 -z-10"></div>
-    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[700px] md:w-[900px] h-[700px] md:h-[900px] bg-pink-500 rounded-full blur-[160px] opacity-30 -z-10"></div>
+    {/* <div className="absolute inset-0 bg-gradient-to-b from-pink-700/50 to-black opacity-60 -z-10"></div> */}
+    {/* <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[700px] md:w-[900px] h-[700px] md:h-[900px] bg-pink-500 rounded-full blur-[160px] opacity-30 -z-10"></div> */}
 
     {/* 🏆 Section Title */}
     <motion.h1 

@@ -23,11 +23,11 @@ const Exchanges = forwardRef<HTMLDivElement>((props, ref) => (
   <section 
     id="exchanges" 
     ref={ref} 
-    className="relative flex flex-col items-center bg-black text-white min-h-screen py-24 px-6 md:px-12"
+    className="relative flex flex-col items-center bg-black/40 text-white min-h-screen py-24 px-6 md:px-12"
   >
     {/* Background Glow Effects */}
-    <div className="absolute inset-0 bg-gradient-to-b from-pink-700/50 to-black opacity-60 -z-10"></div>
-    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[700px] md:w-[900px] h-[700px] md:h-[900px] bg-pink-500 rounded-full blur-[160px] opacity-30 -z-10"></div>
+    {/* <div className="absolute inset-0 bg-gradient-to-b from-pink-700/50 to-black opacity-60 -z-10"></div> */}
+    {/* <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[700px] md:w-[900px] h-[700px] md:h-[900px] bg-pink-500 rounded-full blur-[160px] opacity-30 -z-10"></div> */}
 
     {/* Section Title */}
     <motion.h1 
