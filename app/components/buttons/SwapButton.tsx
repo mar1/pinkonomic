@@ -17,7 +17,7 @@ const SwapButton = () => {
 
   // Define the config object
   const squidConfig = {
-    integratorId: "pink-integrator",
+    integratorId: process.env.REACT_APP_SQUID_INTEGRATOR_ID,
     companyName: "Squid",
     style: {
       neutralContent: "#C4AEEC",

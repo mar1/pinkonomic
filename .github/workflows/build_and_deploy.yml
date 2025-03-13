@@ -25,6 +25,8 @@ jobs:
 
       - name: Build React app
         run: npm run build
+        env:
+          REACT_APP_SQUID_INTEGRATOR_ID: ${{ secrets.SQUID_INTEGRATOR_ID }}
 
       # Configure AWS credentials
       - name: Configure AWS Credentials
