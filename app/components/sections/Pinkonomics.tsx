@@ -28,7 +28,7 @@ const contractAddresses = [
 
 const Pinkonomics = forwardRef<HTMLDivElement>((props, ref) => {
   const [copied, setCopied] = useState<string | null>(null);
-  const [burnedAmount, setBurnedAmount] = useState(86567476.08); // 🔥 Burned PINK
+  const [burnedAmount, setBurnedAmount] = useState(87460279.08); // 🔥 Burned PINK
 
   // 🔥 Calculate Burn Percentage
   const burnPercentage = ((burnedAmount / TOTAL_SUPPLY) * 100).toFixed(2);
