@@ -17,7 +17,7 @@ const SwapButton = () => {
 
   // Define the config object
   const squidConfig = {
-    integratorId: process.env.REACT_APP_SQUID_INTEGRATOR_ID,
+    integratorId: import.meta.env.VITE_SQUID_INTEGRATOR_ID,
     "theme": {
       "borderRadius": {
         "button-lg-primary": "1.25rem",
