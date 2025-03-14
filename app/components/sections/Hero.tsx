@@ -7,15 +7,38 @@ const Hero = forwardRef<HTMLDivElement>((props, ref) => (
   <section
     id="hero"
     ref={ref}
-    className="relative flex flex-col items-center justify-center min-h-screen px-6 md:px-16 pt-24 pb-24 overflow-hidden bg-black"
+    className="relative flex flex-col items-center justify-center min-h-screen px-6 md:px-16 pt-24 pb-24 overflow-hidden bg-transparent"
   >
-    {/* 🖼 Background Image */}
+    {/* 🖼 Background Image with Overlay and Rectangular Edge Fade */}
     <div
-      className="absolute inset-0 bg-cover bg-center"
-      style={{ backgroundImage: `url(${PlatypusImage})` }}
+      className="absolute inset-0 bg-cover bg-center z-[2]"
+      style={{ 
+        backgroundImage: `url(${PlatypusImage})`,
+        // Rectangular mask - combines 4 linear gradients for each edge
+        WebkitMaskImage: `
+
+          linear-gradient(to bottom, 
+            transparent, 
+            black 15%, 
+            black 95%, 
+            transparent 100%
+          )
+        `,
+        maskImage: `
+
+          linear-gradient(to bottom, 
+            transparent, 
+            black 15%, 
+            black 85%, 
+            transparent 100%
+          )
+        `,
+        WebkitMaskComposite: 'source-over',
+        maskComposite: 'intersect'
+      }}
     >
       {/* 🔥 Reduced Background Overlay */}
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="absolute inset-0 bg-black opacity-70"></div>
       {/* 🔥 Thinner Gradient Overlay on Edges */}
       <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black to-transparent"></div>
       <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black to-transparent"></div>
@@ -23,9 +46,17 @@ const Hero = forwardRef<HTMLDivElement>((props, ref) => (
       <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-black to-transparent"></div>
     </div>
 
+    {/* Edge Shadow for Depth - subtle rectangular shadow at edges */}
+    <div 
+      className="absolute inset-0 z-[2] pointer-events-none shadow-inner" 
+      style={{
+        boxShadow: 'inset 0 0 50px 30px rgba(0, 0, 0, 0.25)'
+      }}
+    ></div>
+
     {/* 🏆 Hero Branding */}
     <motion.div
-      className="relative z-10 text-center text-white space-y-4 w-full max-w-6xl"
+      className="relative z-[10] text-center text-white space-y-4 w-full max-w-6xl"
       initial={{ opacity: 0, y: -30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: "easeOut" }}
@@ -43,13 +74,13 @@ const Hero = forwardRef<HTMLDivElement>((props, ref) => (
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
       >
-        Polkadot’s <span className="text-pink-400">First Meme Community</span>
+        Polkadot's <span className="text-pink-400">First Meme Community</span>
       </motion.h2>
     </motion.div>
 
     {/* ✨ Hero Descriptions */}
     <motion.div
-      className="relative z-10 mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-white w-full max-w-5xl"
+      className="relative z-[10] mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 text-white w-full max-w-5xl"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}

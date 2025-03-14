@@ -22,10 +22,10 @@ const NFTSection = forwardRef<HTMLDivElement>((props, ref) => (
     <section
         id="nft"
         ref={ref}
-        className="relative flex flex-col items-center justify-center min-h-screen px-6 md:px-16 py-24 bg-black overflow-hidden"
+        className="relative flex flex-col items-center justify-center min-h-screen px-6 md:px-16 py-24 bg-black/40 overflow-hidden"
     >
         {/* 🔥 Background Glow */}
-        <div className="absolute inset-0 bg-gradient-to-b from-pink-700/50 to-black opacity-80 -z-10"></div>
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-pink-700/50 to-black opacity-80 -z-10"></div> */}
 
         {/* 🚀 Section Title */}
         <motion.h2

@@ -15,11 +15,11 @@ const Socials = forwardRef<HTMLDivElement>((props, ref) => (
   <section
     id="socials"
     ref={ref}
-    className="relative py-40 bg-black text-white"
+    className="relative py-40 bg-black/40 text-white"
   >
     {/* 🔥 Background Glow */}
-    <div className="absolute inset-0 bg-gradient-to-b from-pink-700/50 to-black opacity-60 -z-10"></div>
-    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-[800px] h-[800px] bg-pink-500 rounded-full blur-[160px] opacity-30 -z-10"></div>
+    {/* <div className="absolute inset-0 bg-gradient-to-b from-pink-700/50 to-black opacity-60 -z-10"></div> */}
+    {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-[800px] h-[800px] bg-pink-500 rounded-full blur-[160px] opacity-30 -z-10"></div> */}
 
     {/* Section Header with Glow Effect */}
     <div className="relative text-center max-w-4xl mx-auto px-6">

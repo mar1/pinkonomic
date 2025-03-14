@@ -43,11 +43,11 @@ const Pinkonomics = forwardRef<HTMLDivElement>((props, ref) => {
     <section
       id="pinkonomics"
       ref={ref}
-      className="relative flex flex-col items-center text-white py-24 px-4 md:px-12 bg-black"
+      className="relative flex flex-col items-center text-white py-24 px-4 md:px-12 bg-black/40"
     >
       {/* 🔥 Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-pink-700/50 to-black opacity-60 -z-10"></div>
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[600px] md:w-[900px] h-[600px] md:h-[900px] bg-pink-500 rounded-full blur-[140px] opacity-30 -z-10"></div>
+      {/* <div className="absolute inset-0 bg-gradient-to-b from-pink-700/50 to-black opacity-60 -z-10"></div> */}
+      {/* <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[600px] md:w-[900px] h-[600px] md:h-[900px] bg-pink-500 rounded-full blur-[140px] opacity-30 -z-10"></div> */}
 
       {/* 🎯 Section Title */}
       <motion.h2
