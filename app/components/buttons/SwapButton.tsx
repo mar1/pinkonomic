@@ -127,6 +127,9 @@ const SwapButton = () => {
     "loadPreviousStateFromLocalStorage": true
   };
 
+  console.log("Integrator ID:", import.meta.env.VITE_SQUID_INTEGRATOR_ID); // Debug log
+  console.log("Squid Config:", squidConfig);
+  
   // Construct the iframe src dynamically
   const iframeSrc = `https://studio.squidrouter.com/iframe?config=${encodeURIComponent(JSON.stringify(squidConfig))}`;
 

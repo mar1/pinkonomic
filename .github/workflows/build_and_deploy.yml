@@ -24,9 +24,9 @@ jobs:
         run: npm ci
 
       - name: Build React app
-        run: npm run build
         env:
-          VITE_SQUID_INTEGRATOR_ID: ${{ secrets.SQUID_INTEGRATOR_ID }}
+            VITE_SQUID_INTEGRATOR_ID: ${{ secrets.VITE_SQUID_INTEGRATOR_ID }}
+        run: npm run build
 
       # Configure AWS credentials
       - name: Configure AWS Credentials
