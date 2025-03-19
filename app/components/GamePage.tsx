@@ -23,62 +23,68 @@ const GamePage = ({ title, description, image, platforms, playLinks, tournaments
   const hasTournaments = tournaments && tournaments.length > 0;
 
   return (
-    <section className="relative bg-black text-white min-h-screen overflow-hidden">
-      <HomeButton />
+    <section className="relative bg-black text-white min-h-screen overflow-hidden flex flex-col">
+      {/* Header with Home Button */}
+      <header className="absolute top-4 left-4 md:top-6 md:left-6 z-20">
+        <HomeButton />
+      </header>
 
-      {/* Background Animation */}
-      <motion.div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900 opacity-80 -z-10" />
+      {/* Static Background */}
+      <div className="absolute inset-0 bg-black -z-10" />
+      {/* Animated Overlay */}
       <motion.div
-        className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[1400px] h-[1400px] bg-pink-500 rounded-full blur-[350px] opacity-30 -z-10"
-        animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.4, 0.2] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[1000px] h-[1000px] bg-pink-500 rounded-full blur-[250px] opacity-20 -z-10"
+        animate={{ scale: [1, 1.03, 1], opacity: [0.2, 0.25, 0.2] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      {/* Main Content Wrapper */}
-      <div className="w-full max-w-7xl mx-auto px-6 lg:px-12 pt-20 pb-32">
-        {/* Game Hero Section */}
-        <motion.div
-          className="flex flex-col lg:flex-row items-center gap-12"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
-          {/* Game Image */}
+      {/* Main Content */}
+      <div className="flex-grow flex items-center justify-center py-12 px-4 sm:px-6 md:px-8">
+        <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          {/* Game Image Section */}
           <motion.div
-            className="flex-1 max-w-xl rounded-2xl overflow-hidden shadow-xl border border-gray-800"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="relative group"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
           >
+            <div className="absolute inset-0 bg-gradient-to-br from-pink-500/15 to-blue-500/15 rounded-2xl -z-10 group-hover:scale-102 transition-transform duration-300" />
             <motion.img
               src={image}
               alt={title}
-              className="w-full h-auto object-cover"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
+              className="w-full h-auto rounded-2xl shadow-xl border border-gray-800 object-cover"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
             />
           </motion.div>
 
-          {/* Game Details */}
-          <div className="flex-1 max-w-xl flex flex-col gap-6 text-center lg:text-left">
-            <h1 className="text-6xl font-extrabold uppercase bg-gradient-to-r from-pink-400 to-blue-400 text-transparent bg-clip-text drop-shadow-lg">
+          {/* Game Info Section */}
+          <motion.div
+            className="flex flex-col justify-center gap-6 text-center md:text-left"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold uppercase bg-gradient-to-r from-pink-400 to-blue-400 text-transparent bg-clip-text">
               {title}
             </h1>
-            <p className="text-lg text-gray-300 leading-snug">{description}</p>
-            <p className="text-sm text-gray-400 italic">{platforms}</p>
-
-            {/* Play Buttons */}
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start mt-1">
+            <p className="text-sm sm:text-base md:text-lg text-gray-200 leading-relaxed">{description}</p>
+            <p className="text-xs sm:text-sm text-gray-400 italic">{platforms}</p>
+            <div className="flex flex-wrap gap-3 justify-center md:justify-start">
               {playLinks.map((link, index) => (
                 <GameButton key={index} icon={link.icon} label={link.label} href={link.href} />
               ))}
             </div>
-          </div>
-        </motion.div>
-
-        {/* Tournaments Section */}
-        {hasTournaments ? <TournamentTabs tournaments={tournaments} /> : <NoTournaments />}
+          </motion.div>
+        </div>
       </div>
+
+      {/* Tournaments Section */}
+      {hasTournaments ? (
+        <TournamentTable tournaments={tournaments} />
+      ) : (
+        <NoTournaments />
+      )}
     </section>
   );
 };
@@ -91,19 +97,19 @@ const GameButton = ({ icon, label, href }: { icon: JSX.Element; label: string; h
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="flex items-center px-6 py-3 rounded-full bg-pink-500 hover:bg-pink-600 transition shadow-md text-white font-semibold"
-    whileHover={{ scale: 1.1 }}
+    className="inline-flex items-center px-4 py-2 sm:px-5 sm:py-2.5 rounded-full bg-pink-500 hover:bg-pink-600 text-white font-medium text-sm sm:text-base shadow-md transition-all duration-300"
+    whileHover={{ scale: 1.05, boxShadow: "0 0 12px rgba(236, 72, 153, 0.4)" }}
     whileTap={{ scale: 0.95 }}
   >
     {icon}
-    <span className="ml-3">{label}</span>
+    <span className="ml-2">{label}</span>
   </motion.a>
 );
 
 /********************************
- * Tournament Tabs
+ * Tournament Table
  ********************************/
-const TournamentTabs = ({ tournaments }: { tournaments: Tournament[] }) => {
+const TournamentTable = ({ tournaments }: { tournaments: Tournament[] }) => {
   const [activeTab, setActiveTab] = useState<"Live" | "Upcoming" | "Past">("Live");
 
   const now = new Date();
@@ -114,66 +120,60 @@ const TournamentTabs = ({ tournaments }: { tournaments: Tournament[] }) => {
   };
 
   return (
-    <div className="mt-16 w-full max-w-5xl mx-auto px-6 lg:px-12">
-      <h2 className="text-5xl font-bold text-pink-400 text-center">Tournaments</h2>
+    <div className="w-full bg-black py-10 px-4 sm:px-6 md:px-8">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-pink-400 text-center mb-8">Tournaments</h2>
+      <div className="max-w-6xl mx-auto">
+        {/* Tab Navigation */}
+        <div className="flex justify-center gap-2 sm:gap-3 mb-6">
+          {Object.keys(categorizedTournaments).map((tab) => (
+            <button
+              key={tab}
+              className={`px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-sm sm:text-base font-medium transition-all duration-300 ${
+                activeTab === tab
+                  ? "bg-pink-500 text-white shadow-md"
+                  : "bg-gray-800 text-gray-400 hover:bg-gray-700"
+              }`}
+              onClick={() => setActiveTab(tab as "Live" | "Upcoming" | "Past")}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
 
-      {/* Tab Navigation */}
-      <div className="flex justify-center mt-8 space-x-4">
-        {Object.keys(categorizedTournaments).map((tab) => (
-          <button
-            key={tab}
-            className={`px-6 py-3 text-lg font-semibold rounded-full transition-all ${
-              activeTab === tab ? "bg-pink-500 text-white shadow-lg" : "bg-gray-800 text-gray-400 hover:bg-gray-700"
-            }`}
-            onClick={() => setActiveTab(tab as "Live" | "Upcoming" | "Past")}
-          >
-            {tab}
-          </button>
-        ))}
-      </div>
-
-      {/* Tournament Display (Table for Large Screens, Cards for Mobile) */}
-      <div className="mt-8 bg-gray-900 p-6 rounded-2xl shadow-lg max-w-5xl mx-auto">
-        <div className="hidden md:block">
-          <table className="w-full text-left">
+        {/* Table */}
+        <motion.div
+          className="overflow-x-auto bg-gray-800 rounded-xl shadow-lg border border-gray-700"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <table className="w-full text-left text-sm sm:text-base">
             <thead>
-              <tr className="border-b border-gray-700 text-pink-400 text-lg">
-                <th className="p-4">Tournament</th>
-                <th className="p-4">Prize</th>
-                <th className="p-4">Start Time</th>
-                <th className="p-4">End Time</th>
+              <tr className="bg-gray-900/50 border-b border-gray-700 text-pink-400">
+                <th className="p-3 sm:p-4">Tournament</th>
+                <th className="p-3 sm:p-4">Prize</th>
+                <th className="p-3 sm:p-4">Start Time</th>
+                <th className="p-3 sm:p-4">End Time</th>
               </tr>
             </thead>
             <tbody>
               {categorizedTournaments[activeTab].map((tournament, index) => (
-                <tr key={index} className="border-b border-gray-800 hover:bg-gray-800 transition">
-                  <td className="p-4">{tournament.name}</td>
-                  <td className="p-4">{tournament.prize}</td>
-                  <td className="p-4">{tournament.startTime}</td>
-                  <td className="p-4">{tournament.endTime}</td>
-                </tr>
+                <motion.tr
+                  key={index}
+                  className="border-b border-gray-700 hover:bg-gray-700/50 transition-colors"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                >
+                  <td className="p-3 sm:p-4 text-gray-200">{tournament.name}</td>
+                  <td className="p-3 sm:p-4 text-gray-300">{tournament.prize}</td>
+                  <td className="p-3 sm:p-4 text-gray-400">{tournament.startTime}</td>
+                  <td className="p-3 sm:p-4 text-gray-400">{tournament.endTime}</td>
+                </motion.tr>
               ))}
             </tbody>
           </table>
-        </div>
-
-        {/* Mobile-Friendly Card View */}
-        <div className="md:hidden flex flex-col gap-4">
-          {categorizedTournaments[activeTab].map((tournament, index) => (
-            <div key={index} className="bg-gray-800 p-4 rounded-lg shadow-lg border border-gray-700">
-              <h3 className="text-lg font-bold text-pink-400">{tournament.name}</h3>
-              <p className="text-gray-300">
-                <span className="font-semibold">Prize:</span> {tournament.prize}
-              </p>
-              <p className="text-gray-400">
-                <span className="font-semibold">Start:</span> {tournament.startTime}
-              </p>
-              <p className="text-gray-400">
-                <span className="font-semibold">End:</span> {tournament.endTime}
-              </p>
-            </div>
-          ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
@@ -183,12 +183,17 @@ const TournamentTabs = ({ tournaments }: { tournaments: Tournament[] }) => {
  * No Tournaments Section
  ********************************/
 const NoTournaments = () => (
-  <div className="mt-16 text-center p-6 bg-gray-900 border border-pink-500/30 rounded-xl shadow-lg w-full max-w-5xl mx-auto">
-    <h2 className="text-4xl font-bold text-pink-400">🏆 No Tournaments Yet</h2>
-    <p className="text-lg text-gray-300 mt-4">
-      Stay tuned! Tournaments will be announced soon. Check back later for exciting competitions and rewards.
+  <motion.div
+    className="w-full bg-black py-10 px-4 sm:px-6 md:px-8 text-center"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    transition={{ duration: 0.8 }}
+  >
+    <h2 className="text-3xl sm:text-4xl font-bold text-pink-400">🏆 No Tournaments Yet</h2>
+    <p className="text-sm sm:text-lg text-gray-300 mt-4 max-w-xl mx-auto">
+      Stay tuned! Exciting tournaments are coming soon. Check back for updates.
     </p>
-  </div>
+  </motion.div>
 );
 
 export default GamePage;
