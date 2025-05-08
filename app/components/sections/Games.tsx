@@ -12,18 +12,18 @@ import pinkamolePreview from "~/images/games/pink-a-mole-preview.jpg";
 
 // Games Data
 const games = [
-  { name: "Pink Drop", tagline: "Merge parachains, climb the leaderboard!", image: pinkDropPreview, link: "/pinkiverse/pinkdrop" },
+  { name: "Pink Drop", tagline: "Merge parachains, climb the leaderboard!", image: pinkDropPreview, link: "/game" },
   { name: "Pinkness Overdrive", tagline: "Race through snow & dodge obstacles!", image: pinknessOverdrivePreview, link: "/pinkiverse/pinkness-overdrive" },
   { name: "Pink Bullet", tagline: "Blast rogue validators & survive the chaos!", image: pinkBulletPreview, link: "/pinkiverse/pinkbullet" },
   { name: "Pink-a-mole", tagline: "Whack platypuses, but avoid the astronauts!", image: pinkamolePreview, link: "/pinkiverse/pink-a-mole" },
 ];
 
 const Games = forwardRef<HTMLDivElement>((props, ref) => (
-  <section 
-    id="games" 
-    ref={ref} 
+  <section
+    id="games"
+    ref={ref}
     className="relative flex flex-col items-center text-white py-20 px-4 md:px-8 bg-black/40 overflow-hidden">
-    
+
     {/* Background Elements */}
     {/* <div className="absolute inset-0 bg-gradient-to-b from-black to-pink-900 opacity-60 -z-10"></div> */}
     {/* <div className="absolute -top-40 left-1/2 transform -translate-x-1/2 w-[700px] h-[700px] md:w-[900px] md:h-[900px] bg-pink-600 rounded-full blur-[160px] opacity-20 -z-10"></div> */}
@@ -80,9 +80,8 @@ const Games = forwardRef<HTMLDivElement>((props, ref) => (
 /* 🎮 Game Feature Card */
 const GameCard = ({ game, index }: { game: any; index: number }) => (
   <motion.div
-    className={`relative flex flex-col items-center text-center bg-black bg-opacity-50 backdrop-blur-lg rounded-3xl border border-pink-500/20 shadow-lg p-7 md:p-8 w-full max-w-sm ${
-      index % 2 === 0 ? "rotate-1" : "-rotate-1"
-    } transition hover:shadow-pink-400/30`}
+    className={`relative flex flex-col items-center text-center bg-black bg-opacity-50 backdrop-blur-lg rounded-3xl border border-pink-500/20 shadow-lg p-7 md:p-8 w-full max-w-sm ${index % 2 === 0 ? "rotate-1" : "-rotate-1"
+      } transition hover:shadow-pink-400/30`}
     whileHover={{ scale: 1.05, y: -5 }}
     whileTap={{ scale: 0.98 }}
     initial={{ opacity: 0, y: 50 }}
@@ -114,7 +113,7 @@ const GameCard = ({ game, index }: { game: any; index: number }) => (
         to={game.link}
         className="px-6 md:px-8 py-2 md:py-3 rounded-lg bg-gradient-to-r from-pink-500 to-blue-500 text-white text-sm md:text-md font-semibold hover:shadow-lg transition"
       >
-        Learn More
+        {index === 0 ? "Play Now" : "Learn More"}
       </Link>
     </motion.div>
   </motion.div>
