@@ -21,8 +21,8 @@ const contractAddresses = [
   },
   {
     name: "PINKDROP Game",
-    address: "0x7bFC36fA3f81aD31cec770149695717757297462",
-    explorer: "https://moonscan.io/address/0x7bFC36fA3f81aD31cec770149695717757297462#tokentxns",
+    address: "0x427f48c83a0cbe357edd756133fd5c8b1f6ac227",
+    explorer: "https://moonscan.io/address/0x427f48c83a0cbe357edd756133fd5c8b1f6ac227#tokentxns",
   },
 ];
 
@@ -102,34 +102,34 @@ const Pinkonomics = forwardRef<HTMLDivElement>((props, ref) => {
             transition={{ duration: 1, ease: "easeOut" }}
           >
             {index === 0 && (
-             <motion.img
-               src={PinkBowtie}
-               alt="Pink Bow-tie"
-               className="absolute -top-4 left-1/2 -translate-x-1/2 w-12 h-auto z-10"
-               animate={{
-                 rotate: [0, 15, -15, 0]
-               }}
-               transition={{
-                 duration: 6,
-                 ease: "easeInOut",
-                 repeat: Infinity,
-               }}
-             />
+              <motion.img
+                src={PinkBowtie}
+                alt="Pink Bow-tie"
+                className="absolute -top-4 left-1/2 -translate-x-1/2 w-12 h-auto z-10"
+                animate={{
+                  rotate: [0, 15, -15, 0]
+                }}
+                transition={{
+                  duration: 6,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                }}
+              />
             )}
             {index === 1 && (
-             <motion.img
-               src={PinkBowtie}
-               alt="Pink Bow-tie"
-               className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-12 h-auto z-10"
-               animate={{
-                 rotate: [0, -15, 15, 0]
-               }}
-               transition={{
-                 duration: 6,
-                 ease: "easeInOut",
-                 repeat: Infinity,
-               }}
-             />
+              <motion.img
+                src={PinkBowtie}
+                alt="Pink Bow-tie"
+                className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-12 h-auto z-10"
+                animate={{
+                  rotate: [0, -15, 15, 0]
+                }}
+                transition={{
+                  duration: 6,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                }}
+              />
             )}
             <div className="bg-gradient-to-br from-gray-900/80 via-gray-800/80 to-gray-900/80 absolute inset-0 rounded-xl z-0" />
             <div className="relative z-1">
@@ -142,7 +142,7 @@ const Pinkonomics = forwardRef<HTMLDivElement>((props, ref) => {
               >
                 {item.value}
               </motion.p>
-           </div>
+            </div>
           </motion.div>
         ))}
       </div>
