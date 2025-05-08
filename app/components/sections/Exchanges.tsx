@@ -16,13 +16,13 @@ const exchanges = [
   { name: "Zenlink", network: "Cross-Chain DEX Protocol", logo: zenlinkIcon, link: "https://app.zenlink.pro/swap" },
   { name: "Uniswap", network: "Base Network (ETH L2)", logo: uniswapIconPink, link: "https://app.uniswap.org/explore/tokens/base/0x66fc31b3233c7c001bdd21ff6e5e66fa08ef85d0?inputCurrency=0x833589fcd6edb6e08f4c7c32d4f71b54bda02913" },
   { name: "Squid Router", network: "Cross-Chain Swap", logo: squidRouterIconYellow, link: "https://app.squidrouter.com/?chains=42161%2C1284&tokens=0xaf88d065e77c8cc2239327c5edb3a432268e5831%2C0xffffffff30478fafbe935e466da114e14fb3563d" },
-  { name: "Hydration", network: "Polkadot Asset Hub", logo: hydrationIcon, link: "https://app.hydration.net/trade/swap?assetIn=10&assetOut=1000021" },
+  { name: "Hydration", network: "Polkadot Native DEX", logo: hydrationIcon, link: "https://app.hydration.net/trade/swap?assetIn=10&assetOut=1000021" },
 ];
 
 const Exchanges = forwardRef<HTMLDivElement>((props, ref) => (
-  <section 
-    id="exchanges" 
-    ref={ref} 
+  <section
+    id="exchanges"
+    ref={ref}
     className="relative flex flex-col items-center bg-black/40 text-white min-h-screen py-24 px-6 md:px-12"
   >
     {/* Background Glow Effects */}
@@ -30,7 +30,7 @@ const Exchanges = forwardRef<HTMLDivElement>((props, ref) => (
     {/* <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[700px] md:w-[900px] h-[700px] md:h-[900px] bg-pink-500 rounded-full blur-[160px] opacity-30 -z-10"></div> */}
 
     {/* Section Title */}
-    <motion.h1 
+    <motion.h1
       className="text-4xl md:text-5xl font-extrabold tracking-wide uppercase bg-gradient-to-r from-pink-400 to-blue-500 text-transparent bg-clip-text text-center"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
@@ -40,14 +40,14 @@ const Exchanges = forwardRef<HTMLDivElement>((props, ref) => (
     </motion.h1>
 
     {/* Exchange Grid */}
-    <motion.div 
+    <motion.div
       className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-4 mt-16 md:mt-20 w-full max-w-6xl"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
     >
       {exchanges.map((exchange, index) => (
-        <motion.a 
+        <motion.a
           key={index}
           href={exchange.link || "#"}
           target="_blank"
@@ -60,9 +60,9 @@ const Exchanges = forwardRef<HTMLDivElement>((props, ref) => (
           transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
         >
           {/* Exchange Logo */}
-          <motion.img 
-            src={exchange.logo} 
-            alt={exchange.name} 
+          <motion.img
+            src={exchange.logo}
+            alt={exchange.name}
             className="w-16 h-16 object-contain mx-auto mb-3"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
@@ -79,7 +79,7 @@ const Exchanges = forwardRef<HTMLDivElement>((props, ref) => (
     </motion.div>
 
     {/* Floating Animated Background Text */}
-    <motion.div 
+    <motion.div
       className="absolute w-full h-full pointer-events-none flex justify-center items-center opacity-20"
       animate={{ x: [0, -50, 0], opacity: [0.2, 0.4, 0.2] }}
       transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
