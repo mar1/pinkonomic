@@ -29,9 +29,8 @@ const PinkDrop = forwardRef<HTMLDivElement>((props, ref) => (
       </motion.h2>
 
       {/* 🎮 Game Embed (True Gradient Border) */}
-      <motion.div
+      <div
         className="relative w-[1036px] h-[616px] rounded-3xl overflow-hidden"
-        transition={{ duration: 0.4, ease: "easeInOut" }}
       >
         {/* 🌀 Gradient Border */}
         <div className="absolute inset-0 rounded-3xl p-[8px] bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500">
@@ -45,21 +44,17 @@ const PinkDrop = forwardRef<HTMLDivElement>((props, ref) => (
             ></iframe>
 
             {/* ✨ Subtle Glow Behind iFrame */}
-            <motion.div
+            <div
               className="absolute inset-0 bg-pink-500/30 blur-[160px] rounded-3xl -z-10"
-              animate={{ opacity: [0.3, 0.5, 0.3], scale: [1, 1.02, 1] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            ></motion.div>
+            ></div>
 
             {/* 🌟 Diffusing Shadow for Depth */}
-            <motion.div
+            <div
               className="absolute inset-[-40px] bg-pink-500/10 blur-[200px] rounded-3xl -z-20"
-              animate={{ opacity: [0.1, 0.3, 0.1], scale: [1, 1.05, 1] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            ></motion.div>
+            ></div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* 🏆 "PinkDrop" Text (Right Side, Vertical) */}
       <motion.h2
